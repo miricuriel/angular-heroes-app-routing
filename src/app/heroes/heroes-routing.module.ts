@@ -15,9 +15,14 @@ const routes: Routes = [
     children: [
       { path: 'new-hero', component: NewPageComponent },
       { path: 'search', component: SearchPageComponent },
+      // Con los :/id -> mando un argumento... ej: http://localhost:4200/heroes/edit/34
       { path: 'edit/:id', component: NewPageComponent },
       { path: 'list', component: ListPageComponent },
+      // Si aqui no coincide,ejemplo: http://localhost:4200/heroes/loqsea
+      // mostrara el componente de hero
       { path: ':id', component: HeroPageComponent },
+      // el ** redirecciona si en la ruta no se especifica un path
+      // ejemplo: http://localhost:4200/heroes -> http://localhost:4200/heroes/list
       { path: '**', redirectTo: 'list' },
     ]
   }

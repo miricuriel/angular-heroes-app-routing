@@ -4,6 +4,7 @@ import { Error404PageComponent } from './shared/pages/error404-page/error404-pag
 
 // dominio.com/
 const routes: Routes = [
+  // Estas son mi definicion de rutas usando LAZYLOAD
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ),
@@ -16,12 +17,17 @@ const routes: Routes = [
     path: '404',
     component: Error404PageComponent,
   },
+  // Este es mi pagina por defecto por ruta y redirecciona a heroes
   {
+    // dominio.com/''
     path: '',
     redirectTo: 'heroes',
+    // El patchMatch hace un igual al path
     pathMatch: 'full'
   },
   {
+    // Cualquier otra ruta que no hemos creado, redirecciona a uno que no funciona
+    // El ** es para definir cualquier otra
     path: '**',
     redirectTo: '404',
   }
