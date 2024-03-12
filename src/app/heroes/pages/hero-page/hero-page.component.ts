@@ -30,4 +30,9 @@ export class HeroPageComponent {
       })
   }
 
+  goBack():void {
+    this.router.navigateByUrl('heroes/list')
+  }
+
+
 }
